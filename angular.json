@@ -1,0 +1,127 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ribbon-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ribbon-example",
+      "sourceRoot": "projects/ribbon-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ribbon-example",
+            "index": "projects/ribbon-example/src/index.html",
+            "main": "projects/ribbon-example/src/main.ts",
+            "polyfills": "projects/ribbon-example/src/polyfills.ts",
+            "tsConfig": "projects/ribbon-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ribbon-example/src/favicon.ico",
+              "projects/ribbon-example/src/assets"
+            ],
+            "styles": [
+              "projects/ribbon-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ribbon-example/src/environments/environment.ts",
+                  "with": "projects/ribbon-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ribbon-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ribbon-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ribbon-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ribbon-example/src/test.ts",
+            "polyfills": "projects/ribbon-example/src/polyfills.ts",
+            "tsConfig": "projects/ribbon-example/tsconfig.spec.json",
+            "karmaConfig": "projects/ribbon-example/karma.conf.js",
+            "assets": [
+              "projects/ribbon-example/src/favicon.ico",
+              "projects/ribbon-example/src/assets"
+            ],
+            "styles": [
+              "projects/ribbon-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ribbon-example/tsconfig.app.json",
+              "projects/ribbon-example/tsconfig.spec.json",
+              "projects/ribbon-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ribbon-example/e2e/protractor.conf.js",
+            "devServerTarget": "ribbon-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ribbon-example:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "ribbon-example"
+}
