@@ -3,28 +3,28 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ribbon-example": {
+    "gd-ribbon-example": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/ribbon-example",
-      "sourceRoot": "projects/ribbon-example/src",
+      "root": "projects/gd-ribbon-example",
+      "sourceRoot": "projects/gd-ribbon-example/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ribbon-example",
-            "index": "projects/ribbon-example/src/index.html",
-            "main": "projects/ribbon-example/src/main.ts",
-            "polyfills": "projects/ribbon-example/src/polyfills.ts",
-            "tsConfig": "projects/ribbon-example/tsconfig.app.json",
+            "outputPath": "dist/gd-ribbon-example",
+            "index": "projects/gd-ribbon-example/src/index.html",
+            "main": "projects/gd-ribbon-example/src/main.ts",
+            "polyfills": "projects/gd-ribbon-example/src/polyfills.ts",
+            "tsConfig": "projects/gd-ribbon-example/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/ribbon-example/src/favicon.ico",
-              "projects/ribbon-example/src/assets"
+              "projects/gd-ribbon-example/src/favicon.ico",
+              "projects/gd-ribbon-example/src/assets"
             ],
             "styles": [
-              "projects/ribbon-example/src/styles.css"
+              "projects/gd-ribbon-example/src/styles.css"
             ],
             "scripts": []
           },
@@ -32,8 +32,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/ribbon-example/src/environments/environment.ts",
-                  "with": "projects/ribbon-example/src/environments/environment.prod.ts"
+                  "replace": "projects/gd-ribbon-example/src/environments/environment.ts",
+                  "with": "projects/gd-ribbon-example/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -62,33 +62,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ribbon-example:build"
+            "browserTarget": "gd-ribbon-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ribbon-example:build:production"
+              "browserTarget": "gd-ribbon-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ribbon-example:build"
+            "browserTarget": "gd-ribbon-example:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ribbon-example/src/test.ts",
-            "polyfills": "projects/ribbon-example/src/polyfills.ts",
-            "tsConfig": "projects/ribbon-example/tsconfig.spec.json",
-            "karmaConfig": "projects/ribbon-example/karma.conf.js",
+            "main": "projects/gd-ribbon-example/src/test.ts",
+            "polyfills": "projects/gd-ribbon-example/src/polyfills.ts",
+            "tsConfig": "projects/vribbon-example/tsconfig.spec.json",
+            "karmaConfig": "projects/gd-ribbon-example/karma.conf.js",
             "assets": [
-              "projects/ribbon-example/src/favicon.ico",
-              "projects/ribbon-example/src/assets"
+              "projects/gd-ribbon-example/src/favicon.ico",
+              "projects/gd-ribbon-example/src/assets"
             ],
             "styles": [
-              "projects/ribbon-example/src/styles.css"
+              "projects/gd-ribbon-example/src/styles.css"
             ],
             "scripts": []
           }
@@ -97,9 +97,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ribbon-example/tsconfig.app.json",
-              "projects/ribbon-example/tsconfig.spec.json",
-              "projects/ribbon-example/e2e/tsconfig.json"
+              "projects/gd-ribbon-example/tsconfig.app.json",
+              "projects/gd-ribbon-example/tsconfig.spec.json",
+              "projects/gd-ribbon-example/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -109,12 +109,12 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/ribbon-example/e2e/protractor.conf.js",
-            "devServerTarget": "ribbon-example:serve"
+            "protractorConfig": "projects/gd-ribbon-example/e2e/protractor.conf.js",
+            "devServerTarget": "gd-ribbon-example:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ribbon-example:serve:production"
+              "devServerTarget": "gd-ribbon-example:serve:production"
             }
           }
         }
@@ -123,5 +123,5 @@
   "cli": {
     "analytics": false
   },
-  "defaultProject": "ribbon-example"
+  "defaultProject": "gd-ribbon-example"
 }

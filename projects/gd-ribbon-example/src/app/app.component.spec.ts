@@ -16,7 +16,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ribbon-example'`, () => {
+  it(`should have as title 'gd-ribbon-example'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
   });
@@ -25,6 +25,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ribbon-example app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('gd-ribbon-example app is running!');
   });
 });
