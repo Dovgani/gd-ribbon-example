@@ -1,6 +1,7 @@
 import { Component         } from '@angular/core';
 import { ViewChild         } from '@angular/core';
 import { AfterViewInit     } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 import { GDWindowComponent } from 'gd-window';
 import { GDRibbonComponent } from 'gd-ribbon';
@@ -23,6 +24,10 @@ export class AppComponent implements AfterViewInit
     public  Project        = 'myProject';
     public  CustomID       = '123';
 
+    public  constructor( private cdRef : ChangeDetectorRef )
+    {
+    }
+
     public ngAfterViewInit(): void
     {
         // disable browser contextmenu
@@ -37,7 +42,14 @@ export class AppComponent implements AfterViewInit
         this.window.W = 964;
         this.window.H = 300;
         this.window.Open();
+
+        this.ribbon.ParentID = 'gd_window_' + this.window.ID;
     }    
+
+    public  ngAfterViewChecked() 
+    {
+        this.cdRef.detectChanges();
+    }
 
     public  onRibbonClick( arg : string )
     {
