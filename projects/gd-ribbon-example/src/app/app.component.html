@@ -1,366 +1,671 @@
 <gd-window #myWindow>
-  <gd-ribbon #ribbon (ribbonClick)="onRibbonClick($event)">
+    <gd-splitter [Settings]="splitterRibbon">
+        <div panel="top">
+            <gd-ribbon #ribbon (ribbonClick)="onRibbonClick($event)">
 
-      <div id="ribbon"> 
+                <div id="ribbon"> 
+        
+                    <span class="ribbon-window-title" style="height:0; font-weight:700; font-size:17px">W e b&#160;&#160;&#160;R i b b o n</span>
+        
+                    <div class="ribbon-tab home" id="home-tab">
+                        <span class="ribbon-title" style="height:15px">Home</span>
+                        <div class="ribbon-backstage"  >
+                            <div class="ribbon-button button big" style="float:left;  margin: 0 0 0 4px; overflow:hidden; height: 58px; margin-top:8px;" id="open-active-btn">
+                                <img src="./assets/ribbon/icons/normal/open-page.png" alt="Open" style="float:left; display:block;" />
+                                <span class="label">Open</span>
+                                <span class="desc">Open Last Opened<br/>Active Project.</span>
+                            </div>
+                            <br/>
+                            <div class="ribbon-button button big" style="float:left; overflow:hidden; height: 58px; margin-left:20px; margin-top:-6px;" id="default-settings-btn">
+                                <img src="./assets/ribbon/icons/normal/Settings.png" alt="Save" style="float:left; display:block;" />
+                                <span class="label">Settings</span>
+                                <span class="desc">Application default<br/>settings.</span>
+                            </div>
+                            <br/>
+                            <div class="ribbon-button button big" style="float:left; overflow:hidden; height: 58px; margin-left:20px; margin-top:-20px;"  id="security-rules-btn">
+                                <img src="./assets/ribbon/icons/normal/Users32.png" alt="Save" style="float:left; display:block;" />
+                                <span class="label">Security</span>
+                                <span class="desc">Set Users Access<br/>Security Rules.</span>
+                            </div>
+                            <br/>
+                            <div class="ribbon-button button big" style="float:left; overflow:hidden; height: 58px; margin-left:20px; margin-top:-34px;"  id="3d-btn">
+                                <img src="./assets/ribbon/icons/normal/Cube32.png" alt="Save" style="float:left; display:block;" />
+                                <span class="label">3D</span>
+                                <span class="desc">Show Application<br/>3D Features.</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="ribbon-tab" id="common-tab">
+                        <span class="ribbon-title">Common</span>
+        
+                        <div class="ribbon-section">
+                            <span class="section-title" style="font-size: 9.5px; font-style: italic; height: 14px; margin-left:-5px;">
+                                <div style="padding: 2px 0 0 0;">Info</div>
+                            </span>
+                            <div style="display: inline-block; margin: 0 3px 0 0;">
+                                <table style="padding: 0; margin: 0; border-spacing: 0; border: none;">
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="margin: 1px 0 4px 0; width:35px">User</div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="padding: 1px 0 2px 4px; margin-top: -1px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
+                                                {{ActiveUser}}
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                        </td>
+                                    </tr>
+                                    <tr style="padding: 0; margin: 0; border: none;">
+        
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="margin: 3px 0 4px 0; width:35px">Mode</div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="padding: 1px 0 2px 4px; margin-top: 2px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
+                                                {{Mode}}
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="margin: 2px 0 0 4px; width:45px">Solution</div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="padding: 1px 0 2px 4px; margin-top: 1px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
+                                                {{Solution}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="margin: 1px 0 0 0; width:35px">Action</div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="padding: 2px 0 2px 4px; margin-top: 2px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
+                                                {{Action}}
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="margin: 1px 0 0 5px;">Project</div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div style="padding: 1px 0 3px 4px; margin-top: 1px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
+                                                {{Project}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>                
+        
+                        <div class="ribbon-section">
+                            <span class="section-title" style="font-size: 9.5px; font-style: italic; height: 14px;"><div style="padding: 2px 0 0 0;">Dictionaries</div></span>
+                            <div style="display: inline-block; margin: 0 3px 0 4px;">
+                                
+                                <div class="ribbon-button ribbon-button-large" id="users-btn">
+                                    <span class="button-title">Users</span>
+                                    <span class="button-help">This button will add a table to your document.<br/>This button will add a table to your document.<br/>This button will add a table to your document.<br/>This button will add a table to your document.</span>
+                                    <img class="ribbon-icon ribbon-normal" src="assets/ribbon/icons/normal/Users32.png" />
+                                    <img class="ribbon-icon ribbon-hot" src="assets/ribbon/icons/hot/Users32.png" />
+                                    <img class="ribbon-icon ribbon-disabled" src="assets/ribbon/icons/disabled/Empty.png" />
+                                </div> 
+                                <table style="padding: 0; margin: 0; border-spacing: 0; border: none;">
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="products-btn">
+                                                <span class="button-title">Products</span>
+                                                <span class="button-help">Product Dictionary.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Products.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Products.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="rules-btn">
+                                                <span class="button-title">Rules</span>
+                                                <span class="button-help">Applied Store Rules.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Rules.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Rules.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="departments-btn">
+                                                <span class="button-title">Departments</span>
+                                                <span class="button-help">Departments.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Departments.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Departments.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="signs-btn">
+                                                <span class="button-title">Signs</span>
+                                                <span class="button-help">Sings</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Text.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Text.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="vendors-btn">
+                                                <span class="button-title">Vendors</span>
+                                                <span class="button-help">Vendors</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Vendors.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Vendors.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+            <!-- split button example -->                                        
+                                            <!-- <gd-ribbonSplitButton class="ribbon-split-button" id="styles-btn" (onSplitButtonClick)="onSplitButtonClick($event)"
+                                                        [CommandImage]="'./assets/ribbon/icons/normal/Styles.png'" 
+                                                        [CommandText]="'Styles'" 
+                                                        [CommandWidth]=75 
+                                                        [CommandAreaWidth]=75 
+                                                        [CommandAreaHeight]=49>
+                                                <li>
+                                                    <div style="float: left; margin: 1px 2px 0 1px"><img src='./assets/ribbon/icons/normal/Styles.png'/></div>
+                                                    <div style="float: left; font-size: 10px; margin: 3px 0 0 2px">Tree</div>
+                                                </li>
+                                                <li>
+                                                    <div style="float: left; margin: 1px 2px 0 1px"><img src='./assets/ribbon/icons/normal/Styles.png'/></div>
+                                                    <div style="float: left; font-size: 10px; margin: 3px 0 0 2px">Grid</div>
+                                                </li>
+                                            </gd-ribbonSplitButton> -->
+        
+                                            <div class="ribbon-button ribbon-button-small" id="styles-btn">
+                                                <span class="button-title">Styles</span>
+                                                <span class="button-help">Styles.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Styles.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Styles.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>                
+                        </div>
+        
+                        <div class="ribbon-section">
+                            <span class="section-title" style="font-size: 9.5px; font-style: italic; height: 14px;">
+                                <div style="padding: 2px 0 0 0;">Tools</div>
+                            </span>
+                            <div style="display: inline-block; margin: 0 3px 0 4px;">
+                                <div class="ribbon-button ribbon-button-large" id="text-options-btn">
+                                    <span class="button-title">Text<br/>Options</span>
+                                    <span class="button-help">Text Options for Shapes and Polygons.</span>
+                                    <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Text32.png" />
+                                    <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Text32.png" />
+                                    <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Text32.png" />
+                                </div>
+                                <table style="padding: 0; margin: 0; border-spacing: 0; border: none;">
+                                <tr style="padding: 0; margin: 0; border: none;">
+                                    <td style="padding: 0; margin: 0; border: none;">
+                                        <div class="ribbon-button ribbon-button-small" id="undo-btn">
+                                            <span class="button-help">Undo.</span>
+                                            <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Undo.png" />
+                                            <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Undo.png" />
+                                            <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Undo.png" />
+                                        </div>
+                                    </td>
+                                    <td style="padding: 0; margin: 0; border: none; width: 16px">
+                                        <div class="ribbon-button ribbon-button-small" id="redo-btn">
+                                            <span class="button-help">Redo.</span>
+                                            <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Redo.png" />
+                                            <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Redo.png" />
+                                            <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Redo.png" />
+                                        </div>
+                                    </td>
+                                    <td style="padding: 0; margin: 0; border: none; width: 16px">
+                                        <div class="ribbon-button ribbon-button-small" id="select-in-order-btn">
+                                            <span class="button-help">Select only Shapes In Order.</span>
+                                            <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/SelectInOrder.png" />
+                                            <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/SelectInOrder.png" />
+                                            <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/SelectInOrder.png" />
+                                        </div>
+                                    </td>
+                                    <td style="padding: 0; margin: 0; border: none;">
+                                        <div class="ribbon-button ribbon-button-small" id="select-shapes-btn">
+                                            <span class="button-help">Select only Shapes.</span>
+                                            <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Selection.png" />
+                                            <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Selection.png" />
+                                            <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Selection.png" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="padding: 0; margin: 0; border: none;">
+                                    <td style="padding: 0; margin: 0; border: none;">
+                                        <div class="ribbon-button ribbon-button-small" id="search-btn">
+                                            <span class="button-help">Search Custom ID.</span>
+                                            <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Search.png" />
+                                            <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Search.png" />
+                                            <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Search.png" />
+                                        </div>
+                                    </td>
+                                    <td colspan="3" style="padding: 0; margin: 0; border: none; width: 60px">
+                                        <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px">
+                                            <!-- <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px" (click)="onSetCustomIDClick($event)"> -->
+                                                <input id="searchCustomID" class="ribbonInput" type="text" style="border: none; background: transparent; width: 100%;" [(ngModel)]="SearchCustomID">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="padding: 0; margin: 0; border: none;">
+                                    <td style="padding: 0; margin: 0; border: none;">
+                                        <div class="ribbon-button ribbon-button-small" id="set-custom-id-btn">
+                                            <span class="button-help">Set Custom ID.</span>
+                                            <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Number.png" />
+                                            <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Number.png" />
+                                            <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Number.png" />
+                                        </div>
+                                    </td>
+                                    <td colspan="3" style="padding: 0; margin: 0; border: none;">
+                                        <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px">
+                                            <!-- <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px" (click)="onSetCustomIDClick($event)"> -->
+                                                {{CustomID}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                        </div>   
+                        <!-- Zoom Start -->
+                        <div class="ribbon-section" style="width: 55px;">
+                            <span class="section-title" style="font-size: 10px; font-style: italic; height: 14px;">Zoom</span>
+                            <div style="display: inline-block;">
+                                <table style="padding: 0; margin: 0; border-spacing: 0; border: none; width: 50px;">
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="zoom-in-btn">
+                                                <span class="button-help">Zoom In action.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomIn.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomIn.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="zoom-out-btn">
+                                                <span class="button-help">Zoom Out action.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomOut.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomOut.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="zoom-fit-btn">
+                                                <span class="button-help">Zoom To Fit action.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomToFit.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomToFit.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
+                                            </div>
+                                        </td>
+                                        <td style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="zoom-selected-btn">
+                                                <span class="button-help">Zoom To Selection action.</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomToSelection.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomToSelection.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="padding: 0; margin: 0; border: none;">
+                                        <td colspan="2" style="padding: 0; margin: 0; border: none;">
+                                            <div class="ribbon-button ribbon-button-small" id="zoom-default-btn">
+                                                <span class="button-title" style="display: block; text-align:left">100%&nbsp;</span>
+                                                <span class="button-help">No Zoom (set 100%).</span>
+                                                <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomToDefault.png" />
+                                                <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomToDefault.png" />
+                                                <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Zoom End -->                    
+        
+                        <div class="ribbon-section">
+                            <span class="section-title" style="font-size:10px; font-style: italic;">Server</span>
+                            <div style="display: inline-block;margin: 0 0 0 5px;">
+                                <div class="ribbon-button ribbon-button-large" id="sync-data-btn">
+                                    <span class="button-title">Sync<br/>Data</span>
+                                    <span class="button-help">This button will do something else.</span>
+                                    <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Sync.png" />
+                                </div>
+                                <div class="ribbon-button ribbon-button-large" id="connect-to-server-btn">
+                                    <span class="button-title">Connect</span>
+                                    <span class="button-help">This button will do something else.</span>
+                                    <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Connect.png" />
+                                </div>
+                                <div class="ribbon-button ribbon-button-large" id="disconnect-from-server-btn">
+                                    <span class="button-title">Disconnect</span>
+                                    <span class="button-help">This button will do something else.</span>
+                                    <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Disconnect.png" />
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+        
+                    <div class="ribbon-tab" id="about-tab">
+                        <span class="ribbon-title" style="height:15px">About</span>
+                    </div>
+        
+                    <div class="ribbon-tab" id="registration-tab">
+                        <span class="ribbon-title" style="height:15px">Registration</span>
+                    </div> 
+        
+                </div> 
+        
+            </gd-ribbon>    
+        </div>   
+        <div panel="center">
+            <gd-canvas-wrapper #canvas></gd-canvas-wrapper>
+        </div>   
+    </gd-splitter>  
 
-          <span class="ribbon-window-title" style="height:0; font-weight:700; font-size:17px">W e b&#160;&#160;&#160;R i b b o n</span>
+    <gd-contextmenu #canvasPolygonMenu (itemClick)="onPolygonMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-          <div class="ribbon-tab home" id="home-tab">
-              <span class="ribbon-title" style="height:15px">Home</span>
-              <div class="ribbon-backstage"  >
-                  <div class="ribbon-button button big" style="float:left;  margin: 0 0 0 4px; overflow:hidden; height: 58px; margin-top:8px;" id="open-active-btn">
-                      <img src="./assets/ribbon/icons/normal/open-page.png" alt="Open" style="float:left; display:block;" />
-                      <span class="label">Open</span>
-                      <span class="desc">Open Last Opened<br/>Active Project.</span>
-                  </div>
-                  <br/>
-                  <div class="ribbon-button button big" style="float:left; overflow:hidden; height: 58px; margin-left:20px; margin-top:-6px;" id="default-settings-btn">
-                      <img src="./assets/ribbon/icons/normal/Settings.png" alt="Save" style="float:left; display:block;" />
-                      <span class="label">Settings</span>
-                      <span class="desc">Application default<br/>settings.</span>
-                  </div>
-                  <br/>
-                  <div class="ribbon-button button big" style="float:left; overflow:hidden; height: 58px; margin-left:20px; margin-top:-20px;"  id="security-rules-btn">
-                      <img src="./assets/ribbon/icons/normal/Users32.png" alt="Save" style="float:left; display:block;" />
-                      <span class="label">Security</span>
-                      <span class="desc">Set Users Access<br/>Security Rules.</span>
-                  </div>
-                  <br/>
-                  <div class="ribbon-button button big" style="float:left; overflow:hidden; height: 58px; margin-left:20px; margin-top:-34px;"  id="3d-btn">
-                      <img src="./assets/ribbon/icons/normal/Cube32.png" alt="Save" style="float:left; display:block;" />
-                      <span class="label">3D</span>
-                      <span class="desc">Show Application<br/>3D Features.</span>
-                  </div>
-              </div>
-          </div>
+    <gd-contextmenu #canvasPolygonPointMenu (itemClick)="onPolygonPointMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Add.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Add</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-          <div class="ribbon-tab" id="common-tab">
-              <span class="ribbon-title">Common</span>
+    <gd-contextmenu #canvasAreaMenu (itemClick)="onAreaMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete Children</div>
+        </li>
+        <!-- <li type='separator' style="pointer-events:none; opacity:0.6;"></li> -->
+    </gd-contextmenu>
 
-              <div class="ribbon-section">
-                  <span class="section-title" style="font-size: 9.5px; font-style: italic; height: 14px; margin-left:-5px;">
-                      <div style="padding: 2px 0 0 0;">Info</div>
-                  </span>
-                  <div style="display: inline-block; margin: 0 3px 0 0;">
-                      <table style="padding: 0; margin: 0; border-spacing: 0; border: none;">
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="margin: 1px 0 4px 0; width:35px">User</div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="padding: 1px 0 2px 4px; margin-top: -1px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
-                                      {{ActiveUser}}
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                              </td>
-                          </tr>
-                          <tr style="padding: 0; margin: 0; border: none;">
+    <gd-contextmenu #canvasShapeMenu (itemClick)="onShapeMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 1px 0 2px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>    
 
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="margin: 3px 0 4px 0; width:35px">Mode</div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="padding: 1px 0 2px 4px; margin-top: 2px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
-                                      {{Mode}}
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="margin: 2px 0 0 4px; width:45px">Solution</div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="padding: 1px 0 2px 4px; margin-top: 1px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
-                                      {{Solution}}
-                                  </div>
-                              </td>
-                          </tr>
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="margin: 1px 0 0 0; width:35px">Action</div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="padding: 2px 0 2px 4px; margin-top: 2px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
-                                      {{Action}}
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="margin: 1px 0 0 5px;">Project</div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div style="padding: 1px 0 3px 4px; margin-top: 1px; border: 0.5px solid #bbb; border-radius: 3px; width:120px; height:16px; font-style: italic;">
-                                      {{Project}}
-                                  </div>
-                              </td>
-                          </tr>
-                      </table>
-                  </div>
-              </div>                
+    <gd-contextmenu #canvasDimMenu (itemClick)="onDimMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 1px 0 2px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-              <div class="ribbon-section">
-                  <span class="section-title" style="font-size: 9.5px; font-style: italic; height: 14px;"><div style="padding: 2px 0 0 0;">Dictionaries</div></span>
-                  <div style="display: inline-block; margin: 0 3px 0 4px;">
-                      
-                      <div class="ribbon-button ribbon-button-large" id="users-btn">
-                          <span class="button-title">Users</span>
-                          <span class="button-help">This button will open list of Users.<br/>This button will open list of Users.<br/>This button will open list of Users.<br/>This button will open list of Users.</span>
-                          <img class="ribbon-icon ribbon-normal" src="assets/ribbon/icons/normal/Users32.png" />
-                          <img class="ribbon-icon ribbon-hot" src="assets/ribbon/icons/hot/Users32.png" />
-                          <img class="ribbon-icon ribbon-disabled" src="assets/ribbon/icons/disabled/Empty.png" />
-                      </div> 
-                      <table style="padding: 0; margin: 0; border-spacing: 0; border: none;">
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="products-btn">
-                                      <span class="button-title">Products</span>
-                                      <span class="button-help">Product Dictionary.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Products.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Products.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="rules-btn">
-                                      <span class="button-title">Rules</span>
-                                      <span class="button-help">Applied Store Rules.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Rules.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Rules.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
-                                  </div>
-                              </td>
-                          </tr>
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="departments-btn">
-                                      <span class="button-title">Departments</span>
-                                      <span class="button-help">Departments.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Departments.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Departments.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="signs-btn">
-                                      <span class="button-title">Signs</span>
-                                      <span class="button-help">Sings</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Text.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Text.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
-                                  </div>
-                              </td>
-                          </tr>
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="vendors-btn">
-                                      <span class="button-title">Vendors</span>
-                                      <span class="button-help">Vendors</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Vendors.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Vendors.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-  <!-- split button example -->                                        
-                                  <!-- <gd-ribbonSplitButton class="ribbon-split-button" id="styles-btn" (onSplitButtonClick)="onSplitButtonClick($event)"
-                                              [CommandImage]="'./assets/ribbon/icons/normal/Styles.png'" 
-                                              [CommandText]="'Styles'" 
-                                              [CommandWidth]=75 
-                                              [CommandAreaWidth]=75 
-                                              [CommandAreaHeight]=49>
-                                      <li>
-                                          <div style="float: left; margin: 1px 2px 0 1px"><img src='./assets/ribbon/icons/normal/Styles.png'/></div>
-                                          <div style="float: left; font-size: 10px; margin: 3px 0 0 2px">Tree</div>
-                                      </li>
-                                      <li>
-                                          <div style="float: left; margin: 1px 2px 0 1px"><img src='./assets/ribbon/icons/normal/Styles.png'/></div>
-                                          <div style="float: left; font-size: 10px; margin: 3px 0 0 2px">Grid</div>
-                                      </li>
-                                  </gd-ribbonSplitButton> -->
+    <gd-contextmenu #canvasSegMenu (itemClick)="onSegMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 1px 0 2px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-                                  <div class="ribbon-button ribbon-button-small" id="styles-btn">
-                                      <span class="button-title">Styles</span>
-                                      <span class="button-help">Styles.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Styles.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Styles.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/run.png" />
-                                  </div>
-                              </td>
-                          </tr>
-                      </table>
-                  </div>                
-              </div>
+    <gd-contextmenu #canvasArcMenu (itemClick)="onArcMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 1px 0 2px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-              <div class="ribbon-section">
-                  <span class="section-title" style="font-size: 9.5px; font-style: italic; height: 14px;">
-                      <div style="padding: 2px 0 0 0;">Tools</div>
-                  </span>
-                  <div style="display: inline-block; margin: 0 3px 0 4px;">
-                      <div class="ribbon-button ribbon-button-large" id="text-options-btn">
-                          <span class="button-title">Text<br/>Options</span>
-                          <span class="button-help">Text Options for Shapes and Polygons.</span>
-                          <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Text32.png" />
-                          <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Text32.png" />
-                          <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Text32.png" />
-                      </div>
-                      <table style="padding: 0; margin: 0; border-spacing: 0; border: none;">
-                      <tr style="padding: 0; margin: 0; border: none;">
-                          <td style="padding: 0; margin: 0; border: none;">
-                              <div class="ribbon-button ribbon-button-small" id="undo-btn">
-                                  <span class="button-help">Undo.</span>
-                                  <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Undo.png" />
-                                  <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Undo.png" />
-                                  <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Undo.png" />
-                              </div>
-                          </td>
-                          <td style="padding: 0; margin: 0; border: none; width: 16px">
-                              <div class="ribbon-button ribbon-button-small" id="redo-btn">
-                                  <span class="button-help">Redo.</span>
-                                  <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Redo.png" />
-                                  <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Redo.png" />
-                                  <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Redo.png" />
-                              </div>
-                          </td>
-                          <td style="padding: 0; margin: 0; border: none; width: 16px">
-                              <div class="ribbon-button ribbon-button-small" id="select-in-order-btn">
-                                  <span class="button-help">Select only Shapes In Order.</span>
-                                  <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/SelectInOrder.png" />
-                                  <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/SelectInOrder.png" />
-                                  <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/SelectInOrder.png" />
-                              </div>
-                          </td>
-                          <td style="padding: 0; margin: 0; border: none;">
-                              <div class="ribbon-button ribbon-button-small" id="select-shapes-btn">
-                                  <span class="button-help">Select only Shapes.</span>
-                                  <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Selection.png" />
-                                  <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Selection.png" />
-                                  <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Selection.png" />
-                              </div>
-                          </td>
-                      </tr>
-                      <tr style="padding: 0; margin: 0; border: none;">
-                          <td style="padding: 0; margin: 0; border: none;">
-                              <div class="ribbon-button ribbon-button-small" id="search-btn">
-                                  <span class="button-help">Search Custom ID.</span>
-                                  <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Search.png" />
-                                  <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Search.png" />
-                                  <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Search.png" />
-                              </div>
-                          </td>
-                          <td colspan="3" style="padding: 0; margin: 0; border: none; width: 60px">
-                              <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px">
-                                  <!-- <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px" (click)="onSetCustomIDClick($event)"> -->
-                                      <input id="searchCustomID" class="ribbonInput" type="text" style="border: none; background: transparent; width: 100%;" [(ngModel)]="SearchCustomID">
-                              </div>
-                          </td>
-                      </tr>
-                      <tr style="padding: 0; margin: 0; border: none;">
-                          <td style="padding: 0; margin: 0; border: none;">
-                              <div class="ribbon-button ribbon-button-small" id="set-custom-id-btn">
-                                  <span class="button-help">Set Custom ID.</span>
-                                  <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Number.png" />
-                                  <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/Number.png" />
-                                  <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/Number.png" />
-                              </div>
-                          </td>
-                          <td colspan="3" style="padding: 0; margin: 0; border: none;">
-                              <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px">
-                                  <!-- <div style="padding: 2px 0 2px 4px; background: #eee; margin: 1px 0 0 1px; border: 0.5px solid #bbb; border-radius: 3px; height: 15px; width:77px" (click)="onSetCustomIDClick($event)"> -->
-                                      {{CustomID}}
-                              </div>
-                          </td>
-                      </tr>
-                      </table>
-                  </div>
-              </div>   
-              <!-- Zoom Start -->
-              <div class="ribbon-section" style="width: 55px;">
-                  <span class="section-title" style="font-size: 10px; font-style: italic; height: 14px;">Zoom</span>
-                  <div style="display: inline-block;">
-                      <table style="padding: 0; margin: 0; border-spacing: 0; border: none; width: 50px;">
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="zoom-in-btn">
-                                      <span class="button-help">Zoom In action.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomIn.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomIn.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="zoom-out-btn">
-                                      <span class="button-help">Zoom Out action.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomOut.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomOut.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
-                                  </div>
-                              </td>
-                          </tr>
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="zoom-fit-btn">
-                                      <span class="button-help">Zoom To Fit action.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomToFit.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomToFit.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
-                                  </div>
-                              </td>
-                              <td style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="zoom-selected-btn">
-                                      <span class="button-help">Zoom To Selection action.</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomToSelection.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomToSelection.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
-                                  </div>
-                              </td>
-                          </tr>
-                          <tr style="padding: 0; margin: 0; border: none;">
-                              <td colspan="2" style="padding: 0; margin: 0; border: none;">
-                                  <div class="ribbon-button ribbon-button-small" id="zoom-default-btn">
-                                      <span class="button-title" style="display: block; text-align:left">100%&nbsp;</span>
-                                      <span class="button-help">No Zoom (set 100%).</span>
-                                      <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/ZoomToDefault.png" />
-                                      <img class="ribbon-icon ribbon-hot" src="./assets/ribbon/icons/hot/ZoomToDefault.png" />
-                                      <img class="ribbon-icon ribbon-disabled" src="./assets/ribbon/icons/disabled/ZoomToDefault.png" />
-                                  </div>
-                              </td>
-                          </tr>
-                      </table>
-                  </div>
-              </div>
-              <!-- Zoom End -->                    
+    <gd-contextmenu #canvasBlockMenu (itemClick)="onBlockMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
+      
+    <gd-contextmenu #canvasTextMenu (itemClick)="onTextMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
+     
 
-              <div class="ribbon-section">
-                  <span class="section-title" style="font-size:10px; font-style: italic;">Server</span>
-                  <div style="display: inline-block;margin: 0 0 0 5px;">
-                      <div class="ribbon-button ribbon-button-large" id="sync-data-btn">
-                          <span class="button-title">Sync<br/>Data</span>
-                          <span class="button-help">This button will do something else.</span>
-                          <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Sync.png" />
-                      </div>
-                      <div class="ribbon-button ribbon-button-large" id="connect-to-server-btn">
-                          <span class="button-title">Connect</span>
-                          <span class="button-help">This button will do something else.</span>
-                          <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Connect.png" />
-                      </div>
-                      <div class="ribbon-button ribbon-button-large" id="disconnect-from-server-btn">
-                          <span class="button-title">Disconnect</span>
-                          <span class="button-help">This button will do something else.</span>
-                          <img class="ribbon-icon ribbon-normal" src="./assets/ribbon/icons/normal/Disconnect.png" />
-                      </div>
-                  </div>
-              </div> 
-          </div>
+    <gd-contextmenu #canvasPolylineMenu (itemClick)="onPolylineMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 1px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-          <div class="ribbon-tab" id="about-tab">
-              <span class="ribbon-title" style="height:15px">About</span>
-          </div>
+    <gd-contextmenu #canvasPolylinePointMenu (itemClick)="onPolylinePointMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
 
-          <div class="ribbon-tab" id="registration-tab">
-              <span class="ribbon-title" style="height:15px">Registration</span>
-          </div> 
+    <gd-contextmenu #canvasPolylineSegMenu (itemClick)="onPolylineMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Segment.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Line</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Arc.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Arc</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Add.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Add Point</div>
+        </li>
+    </gd-contextmenu>    
 
-      </div> 
+    <gd-contextmenu #canvasRefMenu (itemClick)="onRefMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+    </gd-contextmenu>
+    
+    <gd-contextmenu #canvasCalloutMenu (itemClick)="onCalloutMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 1px"><img src='assets/Images/Copy.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Copy</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Delete.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Delete</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 1px"><img src='assets/Images/Rotate.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Rotate</div>
+        </li>
+    </gd-contextmenu>
 
-  </gd-ribbon>    
+    <gd-contextmenu #canvasDrawingMenu (itemClick)="onDrawingMenuItemClick($event)">
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Edit.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Edit</div>
+        </li>
+        <li>
+            <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/Images/Paste.png'/></div>
+            <div class="gd-separetor" style="float: left;"></div>
+            <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Paste</div>
+        </li>
+    </gd-contextmenu>
+
+    <gd-window #canvasPGWindow>
+<!--<gd-window #canvasPGWindow (beforeClose)="onCloseCanvasPG($event)"> -->
+        <gd-pg *ngIf="canvas.ShowShapePG"    #canvasPGShape    [ParentID]="canvas.ID"  [Settings]='canvas.shapeSettings'    [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowDrawingPG"  #canvasPGDrawing  [ParentID]="canvas.ID"  [Settings]='canvas.drawingSettings'  [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowSegPG"      #canvasPGSeg      [ParentID]="canvas.ID"  [Settings]='canvas.segSettings'      [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowPolygonPG"  #canvasPGPolygon  [ParentID]="canvas.ID"  [Settings]='canvas.polygonSettings'  [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowRefPG"      #canvasPGRef      [ParentID]="canvas.ID"  [Settings]='canvas.refSettings'      [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowTextPG"     #canvasPGText     [ParentID]="canvas.ID"  [Settings]='canvas.textSettings'     [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowGondolaPG"  #canvasPGGondola  [ParentID]="canvas.ID"  [Settings]='canvas.gondolaSettings'  [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowDimPG"      #canvasPGDim      [ParentID]="canvas.ID"  [Settings]='canvas.dimSettings'      [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowArcPG"      #canvasPGArc      [ParentID]="canvas.ID"  [Settings]='canvas.arcSettings'      [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowPolylinePG" #canvasPGPolyline [ParentID]="canvas.ID"  [Settings]='canvas.polylineSettings' [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowAreaPG"     #canvasPGArea     [ParentID]="canvas.ID"  [Settings]='canvas.areaSettings'     [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg>
+        <gd-pg *ngIf="canvas.ShowCalloutPG"  #canvasPGCallout  [ParentID]="canvas.ID"  [Settings]='canvas.calloutSettings'  [Data]='canvas.Selected'  [Expanded]=[0]></gd-pg> 
+    </gd-window>
+    
+    <gd-window #canvasWarningRecursion>
+        <div style="text-align: center; font-size: 14px; margin: 6px 0 0 0">Cannot add solution as a reference.</div> 
+        <div style="text-align: center; font-size: 10px; font-style: italic; margin: 4px 0 0 0">( recursion occurs )</div>
+    </gd-window>
+    
+    <gd-window #canvasWarningNotImplemented>
+        <div style="text-align: center; font-size: 14px; margin: 6px 0 0 0">This action is not implemented yet</div> 
+        <div style="text-align: center; font-size: 10px; font-style: italic; margin: 4px 0 0 0">( It will be in next release )</div>
+    </gd-window>     
+    
+    <gd-window #canvasDeleteConfirm>
+        <div style="text-align: center; font-size: 14px; margin: 6px 0 0 0">You about to delete a Record</div> 
+        <div style="text-align: center; font-size: 14px;">Are You sure?</div> 
+        <div style="text-align: center; font-size: 10px; font-style: italic; margin: 4px 0 0 0">( Record will be deleted and cannot be recovered )</div>
+    </gd-window>
+
+</gd-window>
+
+<gd-window #help>
+    <div style="padding : 1px 0 0 24px;">
+        <br>
+        <b>Imbeded wire fonts:</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;  On top right corner "This is true wire font"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;  zoom it out to see how it looks like;<br>
+        <br>
+        <b>You can do:</b><br>
+        <br>
+        <b>pan:</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- ctrl + left mouse;<br>
+        <br>
+        <b>zoom:</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- mouse wheel;<br>
+        <br>
+        <b>select:</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- click object (right click select and context menu);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- mouse down on drawing and drag;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- select polygon click on text first or click on polygon border;<br>
+        <br>
+        <b>tooltip:</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- point mouse on object (implemented for: shape, polygon, dimention and block);<br>
+        <br>
+        <b>edit:</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- right click on object and select edit in contextmenu;<br>
+    </div>
 </gd-window>
